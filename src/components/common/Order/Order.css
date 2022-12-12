@@ -1,16 +1,29 @@
 .order{
     position: relative;
-    width: 100%;
     margin-bottom: 10px;
     padding: 10px;
     background-color: #f5f5f5;
+    width: 100%;
 }
-
-.order-img{
+.order-item{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+}
+.order-img {
     width: 50px;
     height: 50px;
-    float: left;
-    margin-right: 20px ;
+    margin-right: 10px;
+}
+.order-img .img{
+    width: 50px;
+    height: 50px;
+    box-sizing: initial;
+}
+.order-content{
+    display: flex;
+    flex-direction: column;
 }
 .delete-icon{
     position: absolute;
@@ -20,8 +33,17 @@
     bottom: 10px;
     transition: color, transform 500ms ease;
 }
+.order-link{
+    color: black;
+}
 
 .delete-icon:hover{
     color: rgb(187, 15, 3);
     transform: scale(1.5);
+}
+.order-text{
+    font-size: 14px;
+}
+.order-link{
+    font-size: 14px;
 }

@@ -1,6 +1,7 @@
 .case {
     padding: 32px 10px 20px 10px;
-    background: #EEEEEE;
+    background: rgb(249,248,228);
+background: linear-gradient(90deg, rgba(249,248,228,1) 0%, rgb(150, 149, 147) 35%, rgba(249,236,227,1) 100%);
   }
 .case__wrapper { 
     display: flex;
@@ -60,6 +61,14 @@
     line-height: 15px;
     color: #000000;
  }
+
+.footer__content__left__logo{
+    font-weight: 700;
+    font-size: 24px;
+    color: hsl(20, 95%, 8%);
+    text-shadow: 1px 1px 4px rgb(223, 210, 199);
+}
+ 
 
 
 

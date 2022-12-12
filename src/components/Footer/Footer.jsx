@@ -64,7 +64,7 @@ const Footer = () => {
                     <div className="footer__content">
                         <div className="footer__content__left">
                             <div className="footer__content__left__logo">
-                                <img src={footer} alt="footer"/>
+                                Trendshop
                             </div>
                         </div>
                         <div className="footer__content__right">

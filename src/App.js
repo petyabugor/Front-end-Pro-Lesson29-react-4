@@ -13,6 +13,7 @@ class App extends React.Component {
     };
     this.addToOrder = this.addToOrder.bind(this);
     this.ascOrder = this.ascOrder.bind(this);
+    this.descOrder = this.descOrder.bind(this);
     this.deleteOrder = this.deleteOrder.bind(this);
   }
   componentDidMount() {
@@ -72,8 +73,15 @@ class App extends React.Component {
   }
   ascOrder() {
     this.setState({
-      items: this.state.items.sort(function (a, b) {
+      items: this.state.items.slice(0, 12).sort(function (a, b) {
         return a.title.localeCompare(b.title);
+      }),
+    });
+  }
+  descOrder() {
+    this.setState({
+      items: this.state.items.slice(0, 12).sort(function (a, b) {
+        return b.title.localeCompare(a.title);
       }),
     });
   }
