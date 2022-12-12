@@ -13,6 +13,7 @@ class App extends React.Component {
     };
     this.addToOrder = this.addToOrder.bind(this);
     this.ascOrder = this.ascOrder.bind(this);
+    this.deleteOrder = this.deleteOrder.bind(this);
   }
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/photos")
@@ -41,14 +42,16 @@ class App extends React.Component {
     } else {
       return (
         <div className="wrapper">
-          <Header></Header>
+          <Header
+            order={this.state.orders}
+            onDelete={this.deleteOrder}
+          ></Header>
           <Main
             sortAB={this.ascOrder}
             sortBA={this.descOrder}
             chooseCategory={this.chooseCategory}
             items={this.state.items}
             onAdd={this.addToOrder}
-            order={this.state.orders}
           ></Main>
           <Footer></Footer>
         </div>
@@ -56,8 +59,16 @@ class App extends React.Component {
     }
   }
 
+  deleteOrder(id) {
+    this.setState({ orders: this.state.orders.filter((el) => el.id !== id) });
+  }
+
   addToOrder(item) {
-    this.setState({ orders: [...this.state.orders, item] });
+    let isInArray = false;
+    this.state.orders.forEach((el) => {
+      if (el.id === item.id) isInArray = true;
+    });
+    if (!isInArray) this.setState({ orders: [...this.state.orders, item] });
   }
   ascOrder() {
     this.setState({

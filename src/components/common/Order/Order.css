@@ -1,4 +1,5 @@
 .order{
+    position: relative;
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
@@ -10,4 +11,17 @@
     height: 50px;
     float: left;
     margin-right: 20px ;
+}
+.delete-icon{
+    position: absolute;
+    color: rgb(236, 80, 69);
+    right: 20px;
+    cursor: pointer;
+    bottom: 10px;
+    transition: color, transform 500ms ease;
+}
+
+.delete-icon:hover{
+    color: rgb(187, 15, 3);
+    transform: scale(1.5);
 }

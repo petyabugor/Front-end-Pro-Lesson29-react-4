@@ -1,17 +1,37 @@
 import React from 'react'
-import Logo from '../../assets/img/Logo.svg'
-import basket from '../../assets/img/basket.png'
+import Order from '../common/Order/Order'
+import { FaShoppingCart } from "react-icons/fa";
 import  './Header.css'
+import { useState } from 'react';
 
-const Header = () => {
+const showOrders = (props) =>{
+    let summa = 0
+    props.order.forEach(el => summa += Number.parseFloat(el.id))
+    return (<div>
+         {props.order.map(el =>(
+        <Order onDelete={props.onDelete} key={el.id} item={el} />
+        ))}
+        <p className="summa">Сумма: {summa} $ </p>
+    </div>
+        )  
+}
+const showNothing = () =>{
+    return (<div className='empty'>
+         <h3>Корзина пуста!</h3>
+    </div>
+        )  
+}
+
+export default function Header(props)  {
+    let [cartOpen, setCartOpen]= useState(false)
   return (
     <header className="header">
             <div className="header__container _container">
             
                 <div className="header__content">
                     <div className="header__logo">
-                        <a href="#" className="header__logo_img">
-                            <img src={Logo} alt="logo" />
+                        <a href="#" className="header__logo_link">
+                            Trendshop
                         </a>
                     </div>
                     <nav className="header__menu menu">
@@ -23,13 +43,17 @@ const Header = () => {
                     </nav>
                 </div>
                     <div className="header__button">
-                    <a href="#" className="header__logo_img">
-                            <img src={basket} alt="logo" />
-                        </a>
+                        <FaShoppingCart onClick={() => setCartOpen(cartOpen = !cartOpen)} className={`shop-cart-button ${cartOpen &&'active'}`}/>
+                        {cartOpen && (
+                        <div className="shop-cart">
+                            {props.order.length > 0 ?
+                            showOrders(props): showNothing()} 
+                        </div>
+                    )}
                     </div>
+                    
             </div>
         </header>
   )
 }
 
-export default Header
