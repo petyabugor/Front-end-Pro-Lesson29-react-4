@@ -1,5 +1,5 @@
 
-let IDLE_TIMEOUT = 5;
+let IDLE_TIMEOUT = 30;
 let _idleSecondsCounter = 0;
 
 document.onclick = function() {
