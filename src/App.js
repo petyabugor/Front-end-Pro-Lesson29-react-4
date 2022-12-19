@@ -1,6 +1,8 @@
 import { Header, Main, Footer } from "./components/index";
 import "./App.css";
+import IdleTimer from "react-idle-timer";
 import React from "react";
+import CheckIdleTime from "./components/common/IdleTime/CheckIdleTime";
 
 class App extends React.Component {
   constructor(props) {
@@ -11,11 +13,13 @@ class App extends React.Component {
       items: [],
       orders: [],
     };
+
     this.addToOrder = this.addToOrder.bind(this);
     this.ascOrder = this.ascOrder.bind(this);
     this.descOrder = this.descOrder.bind(this);
     this.deleteOrder = this.deleteOrder.bind(this);
   }
+
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/photos")
       .then((res) => res.json())
@@ -86,4 +90,5 @@ class App extends React.Component {
     });
   }
 }
+
 export default App;
